@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Arrays</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/arrays/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		Arrays
+	</h1>
+
+	<br></br>
+
+	<p>
+		Arrays are containers that can hold multiple values of the same data type.
+	</p>
+
+	<h2>
+		Declaring Arrays
+	</h2>
+
+	<p>
+		We can declare a reference to an array as follows.  These statements don’t, however, allocate memory for the array.
+	</p>
+
+	<pre>
+		String args[];
+		String[] args;
+
+		int heights[];
+		int[] heights;
+	</pre>
+	<br>
+	<h2>
+		Allocating Arrays
+	</h2>
+
+	<p>
+		In order to allocate space you need to use the new keyword and specify either the size or a list of initial elements.
+	</p>
+	<pre>
+		String[] arr1 = new String[3];  // elements initialized to null
+		int[] arr2 = new int[12];       // elements initialized to 0
+
+		String s1 = "one";
+		String s2 = "two";
+		String[] arr3 = {s1, s2, "three"};
+		int[] arr4 = {10, 20, 17};
+
+		arr3 = new String[] {"four", "five"};  // array declared earlier
+		arr4 = new int[] {31, 47};             // array declared earlier
+	</pre>
+	<br>
+	<h2>
+		Accessing Elements of an Array
+	</h2>
+	<p>
+		We can get the value stored at a particular index in the array using brackets and the index.
+	</p>
+	<pre>
+		String first = arr3[0];
+		int last = arr4[1];
+	</pre>
+	<p>
+		Arrays are implemented as objects on the heap and have a length property that can be used to get the size of the array. Note that length is not a method, but rather a property.  We can access properties (a.k.a. fields) using the dot operator as we did with methods, however we omit the parenthesis.
+	</p>
+
+	<pre>
+		System.out.println("Size: " + arr4.length);   // prints 2
+	</pre>
+	<p>
+		We can access all of the elements in an array using a for-loop to iterate over all of the possible array indices.  In the example below, we initialize all of the elements in the array to 1.
+	</p>
+	<pre>
+		for (int i = 0; i < arr4.length; i++) {
+		    arr4[i] = 1;
+		}
+	</pre>
+	<br>
+	<h2>
+		For-each Loops
+	</h2>
+	<p>
+		For-each loops allow us to iterate through all of the elements in the array without having to use indices.  For-loops can not be used to modify an array( add element, remove element, change element), but are useful when you need to process each element.
+	</p>
+	<pre>
+		for (int element : arr4) {
+		    System.out.printf("%d ", element);
+		}
+	</pre>
+	<br>
+	<h2>
+		Arrays are Reference Types
+	</h2>
+
+	<p>
+		-Stored on the heap<br>
+		-We can pass references to arrays into functions<br>
+		-Arrays passed into a function can be modified within the function<br>
+		-We can return reference to arrays.<br>
+		-Memory is reserved so long as it is referenced by some variable.<br>
+	</p>
+
+	<h2>
+		Passing and Returning Arrays
+	</h2>
+
+	<pre>
+		public static void main(String[] args) {
+	    int[] ages = initArray(10);
+	    System.out.println("Total ages: " + sum(ages));
+	}
+
+	static int[] initArray(int size) {
+	    int[] arr = new int[size];
+
+	    for (int i = 0; i < arr.length; i++) {
+	        arr[i] = i;
+	    }
+
+	    return arr;
+	}
+
+	static int sum(int[] arr) {
+	    if (arr == null) {
+	        return 0;
+	    }
+	    int sum = 0;
+	    for (int elm : arr) {
+	        sum += elm;
+	    }
+	    return sum;
+	}
+	</pre>
+	<br>
+	<p>
+		Notice that we check to see if arr is null in the sum function.  Before ever calling a method or accessing a field on a reference type variable, make sure it is not null (or use a try-catch statement).
+	</p>
+
+<% include ../partials/footer %>
+</div>

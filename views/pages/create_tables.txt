@@ -1,0 +1,161 @@
+CREATE TABLE IF NOT EXISTS comments_algorithm(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_2D(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_arrays_examples(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_arrays(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_comments(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_conditional(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_conversions(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_do_while(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_encoding(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_error(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_Expressions(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_for_loops(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_hello(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_Parsing(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_Reading1(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_Reading2(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_scope(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_strings(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_switch(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_Tokens(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_type_wrap(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_var_args(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_variables(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_while_loops(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_writing_methods(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS comments_Writing(
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,
+    post text NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS users(
+    username text PRIMARY KEY,
+    password text NOT NULL,
+    location SMALLINT NOT NULL
+);

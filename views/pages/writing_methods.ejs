@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Writing Methods</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/writing_methods/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+<a href="algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		Writing Methods
+	</h1>
+
+	<br></br>
+
+	<p>
+		A method (like main) is a block of code within a class that can be called within the class.  The code within the block is executed when the method is called.
+		<br></br>
+		We often create a method when a block of code needs to be executed repeatedly.  Rather than have multiple copies of the same block of code, we can put one copy of the code in a method and repeatedly call the method.  We also create method simply to organize our code.
+	</p>
+	<br>
+	<h2>
+		The General Form of a Method
+	</h2>
+
+	<pre>
+		modifier return_type  method_identifier(parameter_list) {
+			    ...
+			    return_statement;
+			}
+		}
+	</pre>
+
+	<br></br>
+	<h2>
+		Example 1
+	</h2>
+
+	<pre>
+		public static void main(String[] args) {
+		    Scanner sc = new Scanner(System.in);
+		    int b = sc.nextInt();
+		    int h = sc.nextInt();
+		    int area = computeArea(b,h);  // method call
+		    if (area > 0) {
+		        printArea(area);
+		    }
+		}
+
+		static int computeArea(int base, int height) {  // method definition
+		    if (base <= 0 | height <= 0) {
+		        return -1;
+		    } else {
+		        return base * height;
+		    }
+		}
+
+		static void printArea(int a) { // method definition
+		    System.out.printf("Area: %d\n", a);
+		}
+	</pre>
+	<br></br>
+	<h2>
+		Variable Scope
+	</h2>
+
+	<p>
+		-Parameters (primitive vs. reference)<br>
+		-Local Variables<br>
+		-Returning values<br>
+	</p>
+
+	<br>
+	<h2>
+		Example 2
+	</h2>
+
+	<pre>
+		public static void main(String[] args) {
+		    String input = getName();
+		    greetPerson(input);
+		}
+
+		static String getName() {
+		    Scanner sc = new Scanner(System.in);
+		    System.out.println("Please enter your name: ");
+		    String name = sc.next();
+		    return name;
+		}
+
+		static void greetPerson(String name) {
+		    System.out.println("Hello" + name);
+		}
+	</pre>
+
+
+
+<% include ../partials/footer %>
+</div>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+	<title>Java Tutorials</title>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	</head>
+	<body>
+	<!-- Navigation Bar -->
+	<div class="bg-img">
+	  <div class="container">
+	    <div class="topnav">
+	      <a href="/index">Home</a>
+	      <a href="/aboutUs">About Us</a>
+	      <a href="/javaContent">Content</a>
+				<a style="padding:0px 0px;"><form action="/index/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+        <%
+      	if (location) {
+      		var loc = '';
+          loc += '<a href="';
+          loc += location;
+          loc += '">Go To Last Location</a>';
+
+          %>
+      	<%- loc %>
+      	<% } %>
+        <%
+      	if (username) {
+      		var user = '';
+      		if(username == "Not Signed In"){
+            user += '<a href="/login">Login/Register</a>';
+          }else{
+            user += '<a> Signed in as: ';
+            user += username;
+            user += '</a>';
+          }
+          %>
+      	<%- user %>
+      	<% } %>
+	    </div>
+
+	  </div>
+	</div>
+
+	<center>
+	  <br></br>
+		<h1>Welcome to Java Tutorials!</h1>
+		  <br></br>
+		  <br>
+			<div>
+				<p>
+					<img src="/views/pages/images/javaLogo.png" class="rounded-circle" height ="300px" width = "300px" alt=" !Error: Image Link Broken">
+				</p>
+				<br></br>
+				<br>
+				<p>
+					We hope to provide the best resource for Intro to Java Students Possible.
+				</p>
+				<br>
+				<p>
+					We are very excited to assist you on your journey to becoming proficient in the basics of learning the Java Programming Language!
+				</p>
+				<br>
+				<p>
+					Java is a general purpose, class based, object oriented programming language that is designed to requires developers to use as few implementation dependencies as possible. It's developers intent was to create a language that allows developers to "Write Once, Run Anywhere" (WORA).
+				</p>
+			</div>
+	</center>
+</html>

@@ -1,46 +1,129 @@
-<% include ../partials/header %>
-	
-   
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-      }
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 
-    </style>
-    <form class="form-signin">
-	  <img class="rounded-circle" src="../resources/img/cu_boulder_logo.jpg" alt="" width="72" height="72">
-	  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-	  <label for="inputEmail" class="sr-only">Email address</label>
-	  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-	  <label for="inputPassword" class="sr-only">Password</label>
-	  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-	  <div class="checkbox mb-3">
-		<label>
-		  <input type="checkbox" value="remember-me"> Remember me | 
-		</label>
-			<a href="">Forgot Password?</a>
+	<title>Java Tutorials</title>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	</head>
+	<body>
+	<!-- Navigation Bar -->
+	<div class="bg-img">
+	  <div class="container">
+	    <div class="topnav">
+	      <a href="/index">Home</a>
+	      <a href="/aboutUs">About Us</a>
+	      <a href="/javaContent">Content</a>
+				<a style="padding:0px 0px;"><form action="/login/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+        <%
+      	if (location) {
+      		var loc = '';
+          loc += '<a href="';
+          loc += location;
+          loc += '">Go To Last Location</a>';
+
+          %>
+      	<%- loc %>
+      	<% } %>
+        <%
+      	if (username) {
+      		var user = '';
+      		if(username == "Not Signed In"){
+            user += '<a href="/login">Login/Register</a>';
+          }else{
+            user += '<a> Signed in as: ';
+            user += username;
+            user += '</a>';
+          }
+          %>
+      	<%- user %>
+      	<% } %>
+	    </div>
+
 	  </div>
-	  <button class="btn btn-lg btn-primary" type="submit">Sign in</button>
-	  <a class="btn btn-lg btn-primary" href="register">Register</a>
-	  <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
-	</form>
-	<!-- Because we now use partials for our header, we can't directly add Boostrap Classes to our Body tag.
-		 Below is a "work-around" to apply the Bootstrap classes when the page loads
-	 -->
-	<script type="text/javascript">
-        function addCSSToBody() {
-            document.body.classlist.add("center");
-            document.body.classlist.add("text-center");
-        }
-        window.onload = addCSSToBody;
+	</div>
 
-	</script>
-<% include ../partials/footer %>
+    <h1>
+      <br>
+      <%- username %>
+    </h1>
+
+    <br /><br /><br /><br />
+
+  	<div class="text-center">
+  		<a href="#registerModal" class="btn btn-info" data-toggle="modal">Click to Register</a>
+      <a href="#signinModal" class="btn btn-info" data-toggle="modal">Click to Sign In</a>
+  	</div>
+
+  	<div id="registerModal" class="modal fade">
+  		<div class="modal-dialog modal-login">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<div class="avatar">
+  						<img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+  					</div>
+  					<h4 class="modal-title">Register</h4>
+  					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  				</div>
+  				<form action="/login/register" method="post" class="modal-body">
+  					<div class="form-group">
+  						<input type="text" class="form-control" name="usernameInput1" id="usernameInput1" placeholder="Username"
+  							required="required">
+  					</div>
+  					<div class="form-group">
+  						<input type="password" class="form-control" name="passwordInput1" id="passwordInput1" placeholder="Password"
+  							required="required">
+  					</div>
+  					<div class="form-group">
+  						<button id="my_submit_button" class="btn btn-primary btn-block login-btn"
+  							onClick="onClickFunctionRegister()" type="submit">Register</button>
+  					</div>
+  				</form>
+  			</div>
+  		</div>
+  	</div>
+
+    <div id="signinModal" class="modal fade">
+      <div class="modal-dialog modal-login">
+  			<div class="modal-content">
+  				<div class="modal-header">
+  					<div class="avatar">
+  						<img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+  					</div>
+  					<h4 class="modal-title">Sign In</h4>
+  					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  				</div>
+          <form action="/login/signin" method="post" class="modal-body">
+  					<div class="form-group">
+  						<input id="usernameInput2" type="text" class="form-control" name="usernameInput2" placeholder="Username"
+  							required="required">
+  					</div>
+  					<div class="form-group">
+  						<input id="passwordInput2" type="password" class="form-control" name="passwordInput2" placeholder="Password"
+  							required="required">
+  					</div>
+  					<button id="my_submit_button" class="btn btn-primary btn-block login-btn"
+  							onClick="onClickFunctionSignedIn()" type="submit">Sign In</button>
+  				</form>
+  			</div>
+  		</div>
+  	</div>
+  	<br /><br /><br />
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="javascript.js"></script>
+  </body>
+</html>

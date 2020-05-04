@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<title>About Us</title>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Java Content</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/javaContent/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		<br></br>
+		Java Content
+	</h1>
+	<br></br>
+	<p>In our Java tutorials we will seek to explain otherwise complex topics for you in plain english. You will learn the basic components of the Java Programming Language in topics ranging from what an algorithm actually is to reading and writing files, to building structures.</p>
+		<br></br>
+	<p>These technical tools are essential to you learning how to effectively problem solve in any object oriented language. The most important thing you will learn on this journey is HOW to think like a computer scientist. The problems you will encounter on this journey will challenge your resilience and the way you think. Now... Lets have some fun!</p>
+		<br></br>
+</div>
+</body>
+</html>

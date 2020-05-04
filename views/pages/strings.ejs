@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Strings</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/strings/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		Strings
+	</h1>
+
+	<br></br>
+
+	<p>
+		The String type is defined in a class named String found in a file named String.java.
+
+		<br>The String type is a reference type meaning that a variable of type String holds a reference (memory address on the Heap) to where an instance of the String class is actually stored.
+
+		<br>The String class provides
+
+		storage for a sequences of characters that define the String
+		a ton of method that allow us to retrieve information about the String and manipulate the String
+		We can create strings using a String literal or a constructor, or a combination of variables and literals.
+	</p>
+
+	<pre>
+		String str0 = "cat";
+		String str1 = new String();
+		String str2 = new String("hat");
+
+		char[] data = {'c', 'a', 't'};
+		String str3 = new String(data);              // "cat"
+		String str4 = new String(data, 1, 2);        // "at"
+
+		byte[] ascii = {99, 97, 116};
+		String str5 = new String(ascii);             // "cat"
+		String str6 = new String(ascii, 1, 2);       // "at"
+
+		String str7 = str0 + " in the " + str2;      // concatenation
+		String str8 = new String(str7);
+		String str9 = str8;
+	</pre>
+
+	<br></br>
+
+	<h1>
+		Equality:
+	</h1>
+	<pre>
+		String s1 = "hello";
+		String s2 = s1;
+		String s3 = "hello";
+		String s4 = new String(s1);
+
+		System.out.println(s1==s2?"equal":"unequal");
+		System.out.println(s1==s3?"equal":"unequal");
+		System.out.println(s1==s4?"equal":"unequal");
+	</pre>
+	<p>
+		We can call class methods on an instance of a class using the dot operator as shown below.
+
+		The equals() method compares characters and the equalsIgnoreCase(), well, compares characters while ignoring the case of the characters.  Both methods return a boolean value.
+	</p>
+
+	<pre>
+		String s5 = "Hello";
+		System.out.println(s1==s5?"equal":"unequal");
+		System.out.println(s1.equals(s5)?"equal":"unequal");
+		System.out.println(s1.equalsIgnoreCase(s5)?"equal":"unequal");
+	</pre>
+	<br></br>
+	<h1>
+		Operations on Strings:
+	</h1>
+	<br>
+	<h2>
+		Obtaining the Length of a String
+	</h2>
+		<p>
+			You can find the length of a string by using the length() method.
+	</p>
+
+	<pre>
+		String player = "Bob";
+		int len = player.length();  // 3
+	</pre>
+	<br>
+	<h2>
+		String Concatenation
+	</h2>
+
+	<pre>
+		int age = 20;
+		String mssg0 = "Age: " + age;
+	</pre>
+	<br>
+	<p>
+	If one of the operand to the + operator is a String, the compiler converts the other operand to a String. So be careful.
+	</p>
+	<pre>
+		String mssg1 = "Age: " + age + 1;    // "Age: 201"
+		String mssg2 = "Age: " + (age + 2);  // "Age: 21"
+	</pre>
+	<br>
+	<h2>
+		Creating New Strings From Old Strings
+	</h2>
+	<p>
+		Strings are immutable, so you can’t modify them – but you can construct new string using various String class methods.
+	</p>
+	<pre>
+		String str1 = "scattered".substring(6);
+		String str2 = "scattered".substring(1,4); // doesn't include endIndex
+
+		String str3 = "scattered".replace('c', 'h');  // "shattered"
+		String str4 = "scattered".replace("sc", "ch");  // "chattered"
+
+		//trim() removes leading and trailing whitespace from a string.
+		String str5 = " some info ".trim();    // "some info"
+
+		//join() concatenates two or more strings separated by a delimiter.
+		String str = String.join(":", "one", "two", "tee"); // "one:two:tee"
+	</pre>
+	<br>
+	<h2>
+		Character Extraction
+
+	</h2>
+	<pre>
+		// Get a single character at a particular index
+		char ch = "hello".charAt(4);  // 'o'
+
+		// Get more than one character
+		String str = "hello world";
+		char[] buffer = new char[10];
+		str.getChars(6, 2, buffer, 3);  // copies "wo" to buffer[3]
+
+		// Get all of the characters
+		char[] buffer = str.toCharArray();
+	</pre>
+	<br>
+
+	<h2>
+		Searching strings
+	</h2>
+
+	<pre>
+		String str1 = "one two tee";
+		String str2 = "two";
+
+		System.out.println(str1.regionMatches(0, str2, 0,  3)?"true":"false");
+		System.out.println(str1.regionMatches(4, str2, 0,  3)?"true":"false");
+
+		System.out.println("peanut".startsWith("pea")?"true":"false");
+		System.out.println("peanut".endsWith("nut")?"true":"false");
+
+		System.out.println("hello".indexOf('e'));                // prints 1
+		System.out.println("hello".indexOf("lo"));               // prints 3
+		System.out.println("cat in the hat".indexOf('t', 4));    // prints 7
+		System.out.println("cat in the hat".indexOf("at", 4));   // prints 12
+	</pre>
+
+
+
+	<% include ../partials/footer %>
+</div>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">	
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Scope, Operators, and Precedence</title>
+</head>
+<body>
+	<!-- Navigation Bar -->
+	<div class="bg-img">
+	  <div class="container">
+	    <div class="topnav">
+	      <a href="/index">Home</a>
+	      <a href="/aboutUs">About Us</a>
+	      <a href="/javaContent">Content</a>
+	    </div>
+	  </div>
+	</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<br>
+	<h1>
+		Scope, Operators and Precedence
+	</h1>
+	<br></br>
+	<h2>Scope of Variables</h2>
+	<br>
+	<ul>
+		<li>Inside a method, a block specified by curly braces defines a scope.</li>
+		<li>Variables can be declared in any block.</li>
+		<li>The scope of a variable determines its lifetime and its visibility.</li>
+		<li>A variable defined inside block is:</li>
+			<ul>
+				<li>Visible anywhere inside the block (including nested blocks).</li>
+				<li>Destroyed when program execution leaves the block.</li>
+			</ul>
+	</ul>
+	<br></br>
+	<h2>Operators and Precedence</h2>
+	<br>
+	<pre>
+				
+		(  )			
+		++	—	!	
+		*	/	%	
+		+	–		
+		>	<	>=	<=
+		==	!=		
+		&			
+		|			
+		?:			
+		=
+	</pre>
+	<br></br>
+	<h2>Order of Operations</h2>
+
+	<ul>
+		<li>When multiple operators are encountered that have the same precedence they are evaluated from left to right.</li>
+	</ul>
+
+	<br></br>
+
+<% include ../partials/footer %>
+</div>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>System In, Out and Error</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/error/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<br>
+	<h1>
+		System In, Out and Error
+	</h1>
+	<br></br>
+	<h2>Standard In</h2>
+	<br>
+	<p>
+		Programs often need additional information from users and this information is often entered in via the keyboard. This is so prevalent that most programming languages have a pre-established input channel, called standard-in. By default, when a user types a character on the keyboard, the character is written to standard-in. The program, when it is ready, can then read in the characters.
+	</p>
+	<br>
+	<p>
+		In Java, this channel is called <strong>System.in</strong>. It’s often helpful to use a helper class named <a href="http://docs.oracle.com/javase/8/docs/api/java/util/Scanner">Scanner</a> when we know the types of data that will be entered into the keyboard.  The scanner class returns tokens that are separated by some delimiter. By default the delimiter is any whitespace (e.g. space, newline, tab).
+	</p>
+	<br>
+	<p>Some of the methods provided by the Scanner class are next(), hasNextInt(), nextInt() and nextLine().</p>
+	<br>
+	<p>Here is an example of how Scanner can be used to read in two integers:</p>
+	<br>
+	<pre>
+		Scanner sc = new Scanner(System.in);
+
+		int a = sc.nextInt();
+		int b = sc.nextInt();
+		int sum = a + b;
+
+		System.out.println("sum = " + sum);
+		sc.close();
+	</pre>
+	<br></br>
+	<p>
+		When nextInt() is called, it waits until an integer is entered into the keyboard. Once the user types in a number and presses enter (whitespace), the program moves to the next call to nextInt().
+		<br></br>
+		If you want to read individual characters off the scanner’s stream you have to change the scanner’s delimiter to the empty string as shown below.
+	</p>
+	<pre>
+		sc.useDelimeter("");
+	</pre>
+	<br></br>
+	<h2>Standard-Out</h2>
+	<br>
+	<p>
+		We’ve already seen how we can write to the console using println().
+		<br></br>
+		System.out is a <a href="http://docs.oracle.com/javase/8/docs/api/java/io/PrintStream">PrintStream</a> object and has many other methods for us to play with.
+		<br></br>
+		As we know, println() prints the string passed into it followed by a newline character. If we want to print a single value without the newline character you can use the print() method.
+		<br></br>
+		Another method that is very useful is printf(String format, Object ... args). The first argument is a string that can contain placeholders, characters and escape sequences. The placeholders begin with % and are followed by characters which indicate what type of value will be later put in its place. The variable list of args are variable names whose values replace the placeholders when the string is printed.
+		<br></br>
+		Below are some examples:
+		<br></br>
+	</p>
+	<pre>
+
+		String name = "Gigi";
+		int count = 3;
+		char grade = 'A';
+		System.out.printf("%s received (%d) %c's.\n", name, count, grade);
+	</pre>
+	<br>
+	<p>When run, the following would appear on the console.</p>
+	<br>
+	<pre>Gigi received (3) A's.</pre>
+	<br></br>
+	<h2>Standard-Err</h2>
+	<br>
+	<p>
+		When debugging your code you may want to print data to the screen, but don’t want that data to be sent to System.out. For example, debug messages that are sent to System.out will be marked as incorrect by Kattis.
+	<br></br>
+		In this case, you can print those debug messages to System.err in the same way that you would to System.out. They won’t be read by Kattis but will appear in the console.
+	</p>
+
+
+<% include ../partials/footer %>
+</div>

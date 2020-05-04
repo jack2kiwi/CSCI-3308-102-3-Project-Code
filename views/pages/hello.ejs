@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Hola, Mundo!</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/hello/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		<br>
+		Hello World!
+	</h1>
+
+	<br></br>
+
+	<p>
+		Every Java program starts off as a set of class definitions. Each class definition has an identifier that begins with a capital letter and each class resides in a file having the same name as the class and .java as the file extension.
+		<br>
+		For example, below is a definition for a class named Hello. This class resides in a file named Hello.java.
+	</p>
+	<br>
+	<pre>
+		public class Hello {
+		    public static void main (String[] args) {
+		        System.out.println("Hello World!");
+		    }
+		}</pre>
+	<br>
+	<p>
+		Every program must have exactly one class that contains a function named main with the following signature:
+	</p>
+	<br>
+	<pre>
+		public static void main (String[] args) {
+		    // function body
+		}</pre>
+	<br>
+	<p>
+		When the program is executed, the computer begins executing the code within main(). When the program above is executed, the println() method is called which prints “Hello World!” to the screen.
+	</p>
+	<br>
+	<h2>
+		Compiling Source Code
+	</h2>
+	<br>
+	<p>
+		We can compile source code via the command prompt using the following command.
+	</p>
+	<br>
+	<pre>
+		$ javac Hello.java</pre>
+	<br>
+	<p>
+		The compiler (named javac) will create a file named Hello.class which contains bytecode and can be executed with a Java Runtime Engine (JRE).
+	</p>
+	<br>
+	<h2>
+		Executing Java Bytecode
+	</h2>
+	<p>
+		To execute the bytecode in Hello.class from the command prompt we use the following command:
+	</p>
+	<br>
+	<pre>
+		$ java Hello</pre>
+	<br>
+	<p>
+		Here the JRE (named java) that we do not include the file extension. Here, we only specify the name of the class that contains the main() method.
+	</p>
+	<br>
+
+<% include ../partials/footer %>
+</div>

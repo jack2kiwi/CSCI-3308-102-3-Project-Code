@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>2D Arrays</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/2D/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		2D Arrays
+	</h1>
+
+	<br></br>
+
+	<p>
+    We can declare 2-dimensional arrays as follows.
+    <pre> int[][] m1 = new int[3][3]; </pre>
+
+	</p>
+
+	<br></br>
+	<p>
+		Here m1 has 3 rows, each of length 3.   <br>
+		 You can also declare a multi-dimensional array with rows of a length different than the number of columns.  <br>
+		Below m2 has 2 rows, each of length 3.
+	</p>
+	<br></br>
+
+  <pre>int[][] m2 = new int[2][3]; </pre>
+
+  <p> 2D arrays are just arrays of arrays. So we can do the following. </p>
+  <pre> m2[0] = new int[3];</pre>
+	<pre> m2[1] = new int[3]; </pre>
+	<p> You can also initialize a multi-dimensional array when it is declared.  Here is a 2D array whose rows are of different lengths. </p>
+	<pre>
+		int[][] matrix = {
+		    {1, 0, 0},
+		    {0, 1},
+		    {1}
+		};
+	</pre>
+	<br><br>
+	<h2>
+	    Iterating Over a 2D Array
+	</h2>
+	<br></br>
+	<p>
+		We can iterate over the elements of a 2D array using nested for-loops.
+		If we don’t need to modify the values stored in the matrix,
+		since 2D arrays are just arrays of arrays we can use for-each loops as shown below.<br>
+	</p>
+	<br></br>
+  <pre>
+  	for (int[] arr:  matrix) {
+	    for (int elm : arr) {
+	        System.out.printf("%d ", elm);
+	    }
+	}
+	</pre>
+	<br>
+	<p> If we need to modify the values stored in the matrix we can use a regular for-loop and
+    iterate over the indices of the matrix. </p>
+	<br>
+    <pre>
+    	for(int i = 0; i < matrix.length; i++) {
+		    for (int j = 0; j < matrix[i].length; j++) {
+		        if (i == j) {
+	            matrix[i][j] = 1;
+		        }
+		    }
+		}
+	</pre>
+
+<% include ../partials/footer %>
+</div>

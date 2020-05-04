@@ -1,6 +1,36 @@
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-	<script src="../resources/js/my_scripts.js"></script>
+<br>
+<div class="container">
+	<div class="card" style="width: 45 rem;" id = "comments">
+		<h3 class="card-title">Comments</h3>
+	</div>
+	<%
+	if (data) {
+		var buttons = '';
+		data.forEach(function(item){
+			   buttons += '<div class="card" style="width: 45rem;" id="">';
+			   buttons += '<h5 class="card-title">';
+			   buttons += item.name;
+			   buttons += ':</h5>';
+			   buttons += '<p class="card-text">';
+			   buttons += item.post;
+			   buttons += '</p></div>';
+		   }); %>
+		   <%- buttons %>
+	<% } %>
+	<form action="<%- name %>" method="post">
+		<!-- TODO: Third EJS Update -->
+		<div class="form-group">
+			<label for="name3" >Name (Optional):</label>
+			<input type="text" class="form-control" name = "name3" id="name3" style="width: 45rem; color: white; background-color: grey;"></input>
+		  </div>
+		<div class="form-group">
+			<label for="text">Add comment:</label>
+			<textarea class="form-control" name = "text" id="text" rows="3" style="width: 45rem; color:white; background-color: grey;"></textarea>
+		</div>
+		<button type="submit" class="btn btn-primary btn-block" style = "width:45 rem;">Post Comment</button>
+	</form>
+	
+</div>
+
 </body>
-</html>
+</html> 

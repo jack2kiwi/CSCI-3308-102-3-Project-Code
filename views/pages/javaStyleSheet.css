@@ -1,0 +1,171 @@
+body{
+	text-align: left;
+	font-size: 0.4cm;
+	color: white;
+	background-color: #3d3d40;
+}
+h1 {
+	text-align: center;
+	font-size: 1.5em;
+	color: white;
+	background-color: #3d3d40;
+}
+h2{
+	text-align: center;
+	text-decoration: underline;
+	font-size: 1em;
+	color: white;
+	background-color: #3d3d40;
+	margin:0 auto;
+}
+h4 {
+	text-align:left;
+}
+p {
+	display: block;
+	line-height: 2;
+	font-size: 0.4cm;
+	max-width: 850px;
+	min-width: 850px;
+	margin:0 auto;
+}
+ul {
+	display: block;
+	line-height: 2;
+	font-size: 0.4cm;
+	max-width: 850px;
+	min-width: 850px;
+	margin:0 auto;
+}
+pre {
+	color: white;
+	background-color: #2d2d30;
+	display: block;
+	line-height: 1.5;
+	font-size: 0.4cm;
+	max-width: 850px;
+	min-width: 850px;
+	margin:0 auto;
+}
+/* The sidebar menu */
+.sidenav {
+  height: auto; /* Full-height: remove this if you want "auto" height */
+  width: 160px; /* Set the width of the sidebar */
+  position: absolute; /* Absolute allows scroll when main content is shorter than sidebar */
+  z-index: 1; /* Stay on top */
+  top: 1; /* Stay at the top */
+  left: 0;
+  background-color: #2d2d30; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 12px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container-card {
+  padding: 2px 16px;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  background-color:#343a40;
+  width:275px;
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+img {
+  border-radius: 5px 5px 0 0;
+}
+.bg-img {
+  /* The image used */
+  background-image: url("images/code.png");
+
+  min-height: 200px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+/* Position the navbar container inside the image */
+.container {
+  position: absolute;
+  margin: 20px;
+  width: auto;
+}
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav button {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+	border: none;
+}
+
+.topnav button:hover {
+  background-color: #ddd;
+  color: black;
+}

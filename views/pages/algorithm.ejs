@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Algorithms</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/algorithm/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		<br>
+		What is an algorithm anyways?
+	</h1>
+
+	<br></br>
+
+	<p>
+		So you have a problem. And you want a computer to solve it and print out the answer on your monitor. How do we go from a problem in your head to an answer on your monitor? The solution requires many steps.
+
+	</p>
+
+	<br></br>
+	<p>
+		1. Create Problem Description <br>
+		2. Develop Algorithm (often in Pseudo-code)<br>
+		3. Write, Debug and Test Software
+	</p>
+	<br></br>
+	<h2>
+		Problem Formation
+	</h2>
+	<br></br>
+	<p>
+		A formal description of a problem specifies a set of inputs along with any properties that they might have and a set of outputs with their properties.<br>
+		<br>
+		The ADDITION problem<br>
+		Given any two numbers, output the sum of the numbers.<br>
+		<br>
+		The SORTING problem<br>
+		Given a sequence of numbers, output a permutation of the sequence so that they are in order from lowest to highest.<br>
+		<br>
+		The PRIME (decision) problem<br>
+		Given a number, output YES if the number is prime, otherwise output NO.
+	</p>
+	<br></br>
+	<h2>
+		Algorithms and Pseudo-code
+	</h2>
+	<br></br>
+	<p>
+		An algorithm specifies a sequence of instructions that can be used to produce the output using the input.<br>
+		<br>
+		The MAXIMUM Problem<br>
+		Given a sequence of numbers, output the largest number in the sequence.<br>
+		<br>
+		An algorithm for the MAXIMUM Problem is given below:<br>
+	</p>
+	<br>
+	<pre>
+
+		Set max equal to the first element in the sequence of numbers<br>
+			Until you reach the end of the sequence<br>
+    			If the next element is greater than max<br>
+        			Set max equal that element<br>
+		Return max
+	</pre>
+	<br></br>
+	<p>
+		An algorithm written in English, like the one above, is said to be written in pseudo-code. It has elements of actual code (variables, keywords, indentation) but its not actual code.<br>
+
+		Although computers can not execute pseudo-code, (they only understand binary code (0’s and 1’s)), we often write algorithms in pseudo-code so as to:<br>
+	</p>
+	<br></br>
+	<p>
+		1.)Work out some logical bugs before we code.<br>
+		2.)Be able to explain the algorithm to other humans (now or later).<br>
+		3.)Create a programming language independent description of a solution to the problem.<br>
+
+		Now we need to translate the pseudo-code into programming language code that can be compiled into machine code that the computer can understand.
+	</p>
+
+
+
+<% include ../partials/footer %>
+</div>

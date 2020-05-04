@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>While-loops</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/while_loops/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		While-loops, Continue and Break
+	</h1>
+
+	<br></br>
+
+	<p>
+		A while-loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition.
+
+	</p>
+
+	<br></br>
+	<p>
+		While-loops have two distinct sections:<br>
+		1. The condition to be checked<br>
+		2. The body to be executed
+	</p>
+	<br></br>
+	<h1>
+		Examples:
+	</h1>
+	<br>
+	<pre>
+		while(bool_expr) {
+		    ...
+		}
+	</pre>
+	<br>
+	<pre>
+		while(false) { // careful - loop is never executed
+	    ...
+	}
+	</pre>
+	<br>
+	<pre>
+		while(true) { // infinite loop - use ctrl + c if it won't terminate
+		    ...
+		}
+	</pre>
+	<br>
+	<pre>
+		while(a < b) { // executes for b-a iterations
+		    ...
+		    a++;
+		}
+	</pre>
+	<br></br>
+	<p>
+		Below are 3 fragments of code that all do the same thing: they print the number of even numbers between a and b exclusively.
+		We assume a and b have already been declared and initialized.
+	</p>
+	<pre>
+		int numEven = 0;
+		int i = a + 1;
+		while(i < b) {
+		    numEven = (i % 2 == 0) ?  numEven + 1 : numEven;
+		    i++;
+		}
+		System.out.printf("Number of even numbers: %d\n", numEven);
+	</pre>
+	<br>
+	<pre>
+		int numEven = 0;
+		int i = a + 1;
+
+		while(true) {
+		    if (i == b) {
+		        break;
+		    }
+		    numEven = (i % 2 == 0) ?  numEven + 1 : numEven;
+		    i++;
+		}
+		System.out.printf("Number of even numbers: %d\n", numEven);
+	</pre>
+	<br>
+	<pre>
+		int numEven = 0;
+		int i = a + 1;
+
+		while(i < b) {
+		    if (i % 2 == 1) {
+		        i++;
+		        continue;
+		    }
+
+		    i++;
+		    numEven++;
+		}
+		System.out.printf("Number of even numbers: %d\n", numEven);
+	</pre>
+	<br>
+
+
+
+<% include ../partials/footer %>
+</div>

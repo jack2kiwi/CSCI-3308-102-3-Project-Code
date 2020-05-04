@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Type Wrappers</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/type_wrap/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		Type Wrappers, Auto-boxing and Unboxing
+	</h1>
+
+	<br></br>
+
+	<p>
+		Primitive types include int, double, ect are not objects (on the heap). When variables of primitive types are in scope, memory is allocated on the stack for them.
+
+		There are times when we want an object representation of primitive types. Each primitive type has a wrapper class associated with it.  These classes have fields, constructors and methods that can be very useful.
+
+		The type wrappers are: Double, Float, Long, Integer, Short, Byte, Character and Boolean.
+	</p>
+
+	<pre>
+		int counter = 0;
+
+		Integer counter2 = new Integer(counter);
+	</pre>
+
+	<br></br>
+
+	<h1>
+		The Integer Class
+	</h1>
+
+	<h2>
+		Fields
+	</h2>
+
+	<p>
+		-static int BYTES                     // bytes used to represent an int <br>
+		-static int MAX_VALUE           // max value an int can have <br>
+		-static int MIN_VALUE            // min value an int can have <br>
+	</p>
+	<br>
+
+	<h2>
+		Constructors
+	</h2>
+	<p>
+		-Integer(int value) <br>
+		-Integer(String s)        // throws exception if s does not contain a parsable string.
+	</p>
+	<br>
+	<h2>
+		Methods
+	</h2>
+
+	<p>
+		-(47 of them)<br>
+		-Some interesting ones: <br>
+		-boolean equals(Object obj)<br>
+		-static int compare(int x, int y)<br>
+		-static int parseInt(String s, int radix)<br>
+		-static int sum(int a, int b)<br>
+		-static int max(int a, int b)<br>
+		-static int min(int a, int b)<br>
+		-static String toString(int i, int radix);<br>
+
+	</p>
+	<br>
+	<h2>
+		AutoBoxing and Unboxing
+	</h2>
+	<p>
+		A variable of a primitive wrapper type can be initialized with a primitive.  This is called auto-boxing.  When auto-boxing occurs, the system actually creates a new wrapper typed object automatically (line 2 below).  Similarly we can get the primitive value stored in a wrapper typed object using a simple assignment statement (line 3 below).  This is called unboxing.
+	</p>
+
+	<pre>
+		int counter1 = 0;
+		Integer counter2 = counter1;          // auto-boxing
+		int counter3 = counter2;              // unboxing
+	</pre>
+
+
+<% include ../partials/footer %>
+</div>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<title>About Us</title>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/aboutUs/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+	<br></br>
+	<h1>About Our Team</h1>
+	<br>
+	<!-- A little about the team -->
+	<p>We are a software development team from Boulder, CO and we all attend CU Boulder as Computer Science Majors. We have a passion for helping others learn to code and very much enjoy our pursuit in the field of Computer Science.<p>
+	<br></br>
+	<center>
+	<!-- Jack Holland -->
+	<div class="card">
+	  <img src="/views/pages/images/jack.jpg" alt="Jack" style="height:300px; width:98%">
+	  <div class="container-card">
+	    <h4><b>Jack Holland</b></h4>
+	    <p style="text-align:left">Database Lead<p>
+	  </div>
+	</div>
+	<br>
+	<!-- Liam Hollins -->
+	<div class="card">
+	  <img src="/views/pages/images/liam.jpg" alt="Liam" style="height:300px; width:98%">
+	  <div class="container-card">
+	    <h4><b>Liam Hollins</b></h4>
+	    <p style="text-align:left">Front-End Developer</p>
+	  </div>
+	</div>
+	<br>
+	<!-- Lina Larson -->
+	<div class="card">
+	  <img src="/views/pages/images/lina.jpg" alt="Lina" style="height:300px; width:98%">
+	  <div class="container-card">
+	    <h4><b>Lina Larson</b></h4>
+	    <p style="text-align:left">Front-End Developer</p>
+	  </div>
+	</div>
+	<br>
+	<!-- Ian McGregor -->
+	<div class="card">
+	  <img src="/views/pages/images/me.jpg" alt="Ian" style="height:300px; width:98%">
+	  <div class="container-card">
+	    <h4><b>Ian McGregor</b></h4>
+	    <p style="text-align:left">Font-End Lead</p>
+	  </div>
+	</div>
+	<br>
+		<!-- Alan Yu -->
+	<div class="card">
+	  <img src="/views/pages/images/alan.jpg" alt="Alan" style="height:300px; width:98%">
+	  <div class="container-card">
+	    <h4><b>Alan Yu</b></h4>
+	    <p style="text-align:left">Message Board Developer</p>
+	  </div>
+	</div>
+	<br></br>
+</body>
+</html>

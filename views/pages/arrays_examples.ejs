@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Array Examples</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/arrays_examples/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		Array Examples
+	</h1>
+
+	<br></br>
+
+	<h2>
+		Searching For an Int in an Array of Ints
+	</h2>
+
+	<p>
+		Consider the following block of code:
+	</p>
+
+	<pre>
+		int[] array = new int[5];            // All elements initially 0
+		array[0] = 1;
+		array[1] = 3;
+		array[2] = 5;
+
+		boolean found = search(array, 3);    // found is true
+		found = search(array, 2);            // found is false
+		found = search(array, 0);            // found is true
+	</pre>
+
+	<br></br>
+	<p>
+		Write a method named search that has two parameters.  The first parameter is a reference to an array of integers and the second parameter is an integer.  The method returns true if the value of the second argument is an element in the array referenced by the first.  Otherwise it returns false.
+	</p>
+
+	<pre>
+		private static boolean search(int[] array, int num) {
+		    boolean found = false;
+		    for(int i = 0; i < array.length; i++) {
+		        if (array[i] == num) {
+		            found = true;
+		            break;
+		        }
+		    }
+		    return found;
+	}
+	</pre>
+	<br></br>
+	<h2>
+		Adding Unique Elements to an Array Using Search
+	</h2>
+
+	<p>
+		Write a block of code that repeatedly asks the user to enter an integer until the user has entered 5 different numbers.
+	</p>
+
+	<pre>
+		Scanner sc = new Scanner(System.in);
+		int[] array = new int[5];
+		int numElements = 0;
+
+		while (numElements < 5) {
+		    System.out.println("Please enter an integer:");
+		    int num = sc.nextInt();
+		    boolean found = search(array, num);
+		    if (!found) {
+		        array[numElements] = num;
+		        numElements++;
+		    }
+		}
+	</pre>
+	<br>
+	<h1>
+		Searching For a String in an Array of Strings
+	</h1>
+
+	<p>
+		Consider this code:
+	</p>
+
+	<pre>
+		String[] array = new String[5];
+		array[0] = "One";
+		array[1] = "Two";
+		array[2] = "Tee";
+
+		boolean found = search(array, "Tee");   // found is true
+		found = search(array, "Red");           // found is false
+		found = search(array, null);            // found is false
+	</pre>
+	<br>
+	<p>
+		Write a method named search that has two parameters.  The first parameter is a reference to an array of Strings and the second parameter is a reference to a non-null String.  The method returns true if the String referenced by the second parameter is in the array referenced by the first parameter. Otherwise it returns false.
+	</p>
+
+	<pre>
+		boolean search(String[] array, String word) {
+		    for(int i = 0; i < array.length; i++) {
+		        if (array[i] == null) {
+		            return false;
+		        }
+		        if (array[i].equals(word)) {
+		            return true;
+		        }
+		    }
+		    return false;
+		}
+	</pre>
+
+<% include ../partials/footer %>
+<% include ../partials/footer %>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<link href="/views/pages/javaStyleSheet.css" rel="stylesheet">
+	<title>Variables</title>
+</head>
+<body>
+		<!-- Navigation Bar -->
+		<div class="bg-img">
+		  <div class="container">
+		    <div class="topnav">
+		      <a href="/index">Home</a>
+		      <a href="/aboutUs">About Us</a>
+		      <a href="/javaContent">Content</a>
+					<a style="padding:0px 0px;"><form action="/variables/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+	        <%
+	      	if (location) {
+	      		var loc = '';
+	          loc += '<a href="';
+	          loc += location;
+	          loc += '">Go To Last Location</a>';
+
+	          %>
+	      	<%- loc %>
+	      	<% } %>
+	        <%
+	      	if (username) {
+	      		var user = '';
+	      		if(username == "Not Signed In"){
+	            user += '<a href="/login">Login/Register</a>';
+	          }else{
+	            user += '<a> Signed in as: ';
+	            user += username;
+	            user += '</a>';
+	          }
+	          %>
+	      	<%- user %>
+	      	<% } %>
+		    </div>
+
+		  </div>
+		</div>
+
+<div class="sidenav">
+  <a href="/algorithm">What is an Algorithm Anyways?</a>
+  <a href="/hello">Hello World</a>
+  <a href="/comments">Comments</a>
+  <a href="/encoding">Number and Character Encodings</a>
+  <a href="/variables">Variables</a>
+  <a href="/conversions">Primitive Type Conversions</a>
+  <a href="/scope">Scope, Operators and Precedence</a>
+  <a href="/error">System In, Out and Error</a>
+  <a href="/conditional">Conditional Statements</a>
+  <a href="/switch">Switch Statements</a>
+  <a href="/while_loops">While-Loops, Continue and Break</a>
+  <a href="/do_while">Do-While Loops</a>
+  <a href="/for_loops">For-Loops</a>
+  <a href="/strings">Strings</a>
+  <a href="/type_wrap">Type Wrappers, Auto-Boxing and Unboxing</a>
+  <a href="/writing_methods">Writing Functions</a>
+  <a href="/arrays">Arrays</a>
+  <a href="/arrays_examples">Array Examples</a>
+  <a href="/var_args">Varargs-Variable Length Arguments</a>
+  <a href="/2D">2D Arrays</a>
+  <a href="/Expressions">Catching Expressions</a>
+  <a href="/Writing">Writing to a File</a>
+  <a href="/Reading1">Reading and Writing Files I</a>
+  <a href="/Reading2">Reading and Writing Files II</a>
+  <a href="/Parsing">Parsing Strings</a>
+  <a href="/Tokens">Parsing Strings into Fixed Length Tokens</a>
+</div>
+<div class="main">
+	<h1>
+		<br>
+		Variables
+	</h1>
+
+	<br></br>
+
+	<p>
+		A variable is a container that holds some value.  In Java, before a variable can be used it must be defined with a variable declaration statement and an optional initialization assignment.  The variable declaration includes the type of data that can be stored in the variable and an identifier.
+	</p>
+	<br>
+	<pre>
+		type identifier [= value];
+	</pre>
+	<p>
+		Tab, newline, and space characters are considered whitespace characters.  When writing programs we place whitespace characters (at least one) between the tokens in a statement.  In most cases, multiple whitespace characters are allowed and ignored.
+		<br>
+		Java is a strongly typed programming language.  That means each variable declaration specifies a specific type which defines the values that can be stored in the variable.  A type can be either primitive or reference.
+	</p>
+	<br></br>
+	<h2>
+		Identifiers
+	</h2>
+	<ul>
+		<li>Can be made of upper and lowercase letters, numbers, underscore and dollar sign.</li>
+		<li>Can not begin with number</li>
+		<li>Can not be a Java <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/_keywords"> keyword</a></li>
+	</ul>
+	<br></br>
+	<h2>
+		Identifiers Conventions
+	</h2>
+	<ul>
+		<li>Variables and methods begin with lowercase letters</li>
+		<li>Classes begin with capital letters</li>
+	</ul>
+	<p>A literal defines an explicit value.  We often initialize variables using literals.</p>
+	<pre>
+		int age = 1;
+		double grade = 98.6;
+		char initial = 'A';
+		String phrase = "Hello World!";
+		boolean foundToken = false;
+	</pre>
+	<p>
+		Variables can also be initialized using other expressions, but we’ll get to them later.
+	</p>
+	<pre>
+		int w = x;
+		int y = foo();
+		int z = w * x;
+	</pre>
+	<p>An assignment statement is terminated with a semi-colon.</p>
+	<br></br>
+	<h2>Primitive Types</h2>
+	<ul>
+		<li>byte, short, int, long</li>
+		<li>float, double</li>
+		<li>char</li>
+		<li>boolean</li>
+	</ul>
+	<br></br>
+	<h2>Integers (byte, short, int, long) </h2>
+	<ul>
+		<li>long (64)&nbsp; [-2^63 + 1 , 2^63]</li>
+		<li>int (32) [-2^31+1, 2^31]</li>
+		<li>short (16) [-32,768, 32,767]</li>
+		<li>byte (8)&nbsp; [-128, 127]</li>
+	</ul>
+	<pre>
+		int age = 10;
+		long age = 100000000;
+	</pre>
+	<ul>
+		<li>byte and shorts are promoted (actually stored as) ints</li>
+	</ul>
+	<br></br>
+	<h2>Floating-point (float, double)</h2>
+	<ul>
+		<li>double(64 bit)</li>
+		<li>float (32 bit)</li>
+	</ul>
+	<pre>
+		double average = 3.04;
+		double count = 10.3E10;
+	</pre>
+	<ul>
+		<li>double is often faster than float on modern computers</li>
+		<li>Many math functions return doubles</li>
+	</ul>
+	<br></br>
+	<h2>Characters (char)</h2>
+	<ul>
+		<li>char (16 bit)</li>
+		<li>Represent Unicode symbols</li>
+	</ul>
+	<pre>
+		char ch1, ch2;
+		ch1 = 88;                // ASCII decimal value for 'X'
+		ch2 = 'Y';
+
+		char ch3 = '\'';         // single quote character
+		char ch4 = '\n';         // new line character
+	</pre>
+	<br></br>
+	<h2>Boolean</h2>
+	<ul>
+		<li>boolean (size unidentified)</li>
+		<li>Represents true/false via 0 or 1</li>
+	</ul>
+	<pre>
+		boolean flag = true;
+	</pre>
+	<br></br>
+	<h2>Reference Types</h2>
+	<p>A variable that has a reference type can store a reference (memory location) to where an instance of the reference type is stored. FOr example we can store a sequence of characters in memory ad have a reference variable hold the location to where the strings are stored.</p>
+	<pre>
+		String name = "Eric";
+		String directory = "\\root";
+		String title = "\"To Kill a Mockingbird\"";
+	</pre>
+	<br></br>
+
+<% include ../partials/footer %>
+</div>
