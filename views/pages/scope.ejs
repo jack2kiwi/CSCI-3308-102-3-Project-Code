@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -22,7 +22,32 @@
 	      <a href="/index">Home</a>
 	      <a href="/aboutUs">About Us</a>
 	      <a href="/javaContent">Content</a>
+				<a style="padding:0px 0px;"><form action="/scope/setLoc" method="post"><button class="topnav">Set Location</button></form></a>
+        <%
+      	if (location) {
+      		var loc = '';
+          loc += '<a href="';
+          loc += location;
+          loc += '">Go To Last Location</a>';
+
+          %>
+      	<%- loc %>
+      	<% } %>
+        <%
+      	if (username) {
+      		var user = '';
+      		if(username == "Not Signed In"){
+            user += '<a href="/login">Login/Register</a>';
+          }else{
+            user += '<a> Signed in as: ';
+            user += username;
+            user += '</a>';
+          }
+          %>
+      	<%- user %>
+      	<% } %>
 	    </div>
+
 	  </div>
 	</div>
 
@@ -76,16 +101,16 @@
 	<h2>Operators and Precedence</h2>
 	<br>
 	<pre>
-				
-		(  )			
-		++	—	!	
-		*	/	%	
-		+	–		
+
+		(  )
+		++	—	!
+		*	/	%
+		+	–
 		>	<	>=	<=
-		==	!=		
-		&			
-		|			
-		?:			
+		==	!=
+		&
+		|
+		?:
 		=
 	</pre>
 	<br></br>

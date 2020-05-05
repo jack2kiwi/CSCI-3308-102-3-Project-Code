@@ -580,7 +580,7 @@ app.post('/conditional/setLoc', function(req, res) {
   var loc = 12;
   var updateUsers = "UPDATE users SET location =  " + loc + "  WHERE username = '" + sess.username + "';";
 
-  var query = "SELECT * FROM comments_arrays_examples";
+  var query = "SELECT * FROM comments_conditional";
 
   db.task('get-everything', task => {
         return task.batch([
@@ -590,9 +590,9 @@ app.post('/conditional/setLoc', function(req, res) {
     })
     .then(info => {
       sess.location = 12;
-    	res.render('pages/arrays_examples',{
+    	res.render('pages/conditional',{
 				data: info[1],
-				name: "/arrays_examples/post_comments",
+				name: "/conditional/post_comments",
         username: sess.username,
         message:"",
         location: pageList[sess.location]
@@ -1831,7 +1831,7 @@ app.post('/variables/post_comments', function(req, res) {
 		name2 = "Anonymous";
 	}
 	if (text){
-		insert_statement = "INSERT INTO variables(name, post) VALUES('" + name2 + "', '" + text + "')";
+		insert_statement = "INSERT INTO comments_variables(name, post) VALUES('" + name2 + "', '" + text + "')";
 	}
 	db.task('get-everything', task => {
         return task.batch([
@@ -2132,7 +2132,7 @@ app.post('/javaContent/setLoc', function(req, res) {
   db.any(updateUsers)
         .then(function (rows) {
             sess.location = 3;
-            res.render('pages/login',{
+            res.render('pages/javaContent',{
               username: sess.username,
               message:"",
               location: pageList[sess.location]
@@ -2142,7 +2142,7 @@ app.post('/javaContent/setLoc', function(req, res) {
         .catch(function (err) {
             // display error message in case an error
             console.log('error', err);
-            res.render('pages/login', {
+            res.render('pages/javaContent', {
               username: sess.username,
               message:"",
               location: pageList[sess.location]
@@ -2174,7 +2174,7 @@ app.post('/aboutUs/setLoc', function(req, res) {
   db.any(updateUsers)
         .then(function (rows) {
             sess.location = 1;
-            res.render('pages/login',{
+            res.render('pages/aboutUs',{
               username: sess.username,
               message:"",
               location: pageList[sess.location]
@@ -2184,7 +2184,7 @@ app.post('/aboutUs/setLoc', function(req, res) {
         .catch(function (err) {
             // display error message in case an error
             console.log('error', err);
-            res.render('pages/login', {
+            res.render('pages/aboutUs', {
               username: sess.username,
               message:"",
               location: pageList[sess.location]
@@ -2216,7 +2216,7 @@ app.post('/index/setLoc', function(req, res) {
   db.any(updateUsers)
         .then(function (rows) {
             sess.location = 0;
-            res.render('pages/login',{
+            res.render('pages/index',{
               username: sess.username,
               message:"",
               location: pageList[sess.location]
@@ -2226,7 +2226,7 @@ app.post('/index/setLoc', function(req, res) {
         .catch(function (err) {
             // display error message in case an error
             console.log('error', err);
-            res.render('pages/login', {
+            res.render('pages/index', {
               username: sess.username,
               message:"",
               location: pageList[sess.location]
